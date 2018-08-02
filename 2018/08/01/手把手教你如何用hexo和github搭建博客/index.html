@@ -12,22 +12,22 @@
 <meta name="keywords" content="hexo github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手把手教你如何用hexo和github搭建博客">
-<meta property="og:url" content="http://yoursite.com/2018/08/01/手把手教你如何用hexo和github搭建博客/index.html">
+<meta property="og:url" content="http://heystone.github.io/2018/08/01/手把手教你如何用hexo和github搭建博客/index.html">
 <meta property="og:site_name" content="石头的Web前端Blog">
 <meta property="og:description" content="创建博客主要有四步（以windows为例）：1、安装node.js环境–hexo运行需要基于node环境2、安装hexo3、安装git客户端–方便的执行一些git命令4、创建github仓库–用于作为发布博客的服务器 第一步：安装node.js环境进入官网(https://nodejs.org/en/)下载安装包，直接点击安装即可,安装完后，运行node -v如下即表示安装成功 第二步：安装hex">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/08/01/images/node-v.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/01/images/hexoserver.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/01/images/success.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/01/images/createrep.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/01/images/111.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/01/images/sshkey.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/01/images/setgit.png">
+<meta property="og:image" content="http://heystone.github.io/2018/08/01/images/node-v.png">
+<meta property="og:image" content="http://heystone.github.io/2018/08/01/images/hexoserver.png">
+<meta property="og:image" content="http://heystone.github.io/2018/08/01/images/success.png">
+<meta property="og:image" content="http://heystone.github.io/2018/08/01/images/createrep.png">
+<meta property="og:image" content="http://heystone.github.io/2018/08/01/images/111.png">
+<meta property="og:image" content="http://heystone.github.io/2018/08/01/images/sshkey.png">
+<meta property="og:image" content="http://heystone.github.io/2018/08/01/images/setgit.png">
 <meta property="og:updated_time" content="2018-08-01T15:42:14.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手把手教你如何用hexo和github搭建博客">
 <meta name="twitter:description" content="创建博客主要有四步（以windows为例）：1、安装node.js环境–hexo运行需要基于node环境2、安装hexo3、安装git客户端–方便的执行一些git命令4、创建github仓库–用于作为发布博客的服务器 第一步：安装node.js环境进入官网(https://nodejs.org/en/)下载安装包，直接点击安装即可,安装完后，运行node -v如下即表示安装成功 第二步：安装hex">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/01/images/node-v.png">
+<meta name="twitter:image" content="http://heystone.github.io/2018/08/01/images/node-v.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -144,14 +144,14 @@
 <h2 id="第三步-安装git客户端"><a href="#第三步-安装git客户端" class="headerlink" title="第三步 安装git客户端"></a>第三步 安装git客户端</h2><p>这一步比较简单，不详细描述，搜索git客户端下载，一路next安装，完成后<br>桌面鼠标右键会出现：<br>Git GUI Here 这个是可视化操作界面，我一般不怎么用<br>Git Bash Here  这个是命令行操作，这个用的比较多<br>说明安装成功了，待用</p>
 <h2 id="第四步-创建github仓库"><a href="#第四步-创建github仓库" class="headerlink" title="第四步 创建github仓库"></a>第四步 创建github仓库</h2><p>进入github官网(<a href="http://www.github.com" target="_blank" rel="noopener">http://www.github.com</a>)<br>首先你得有一个github账号（手动滑稽）,没有的话就先注册，简单，不描述，注册后创建一个的仓库，用于存放博客<br>如下图：<br><img src="../images/createrep.png" alt="node版本提示"><br>仓库的名称必须是github名字.github.io，这个要注意<br>创建完仓库以后，就要配置SSH，这个是用来远程连接你的github账户的，有一个公钥和私钥<br>方法如下：<br>打开第三步安装的Git Bash Here<br>执行命令ssh-keyge 回车生成SSH，如果要设置了密码，每次提交github仓库时都要输入密码，不设置的话不用输入<br><img src="../images/111.png" alt="node版本提示"><br>说明创建成功！<br>一般存在于C:\Users\用户.ssh下，会出现两个id_rsa文件，打开id_rsa.pub文件，这里面就是SSH key的内容<br>打开你的github,右上角头像，点击Setting，然后选择SSH and GPG keys，点击右边Add SSH<br>然后把复制的SSH key内容粘贴到下面那个框里面，title随便自己写<br>过程可能会让你输入一次密码，输入即可！<br><img src="../images/sshkey.png" alt="node版本提示"><br>配置好就行了<br><em>这里要注意，复制的一定是.pub的文件里的内容，我第一次就复制错了，复制了第一个私钥的内容，结果报错：<br>GitHub添加SSH keys报错Key is invalid. It must begin with ‘ssh-ed25519’, ‘ssh-rsa’, ‘ssh-dss’, ‘ecdsa-sha</em><br>判断SSH是否配置好，用git bash 命令行输入<br>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a><br>出现Hi heystone! You’ve successfully authenticated, but GitHub does not provide shell access. 就表示你已经配置好了SSH<br>SSH配置好了，进行下一步</p>
 <h2 id="配置本地hexo仓库地址"><a href="#配置本地hexo仓库地址" class="headerlink" title="配置本地hexo仓库地址"></a>配置本地hexo仓库地址</h2><p>打开Hexo目录下的_config.yml，最下面<br><code>deploy:</code><br>  <code>type: git</code><br>  <code>repository: https://github.com/heystone/heystone.github.io.git</code><br>  <code>branch: master</code><br>repository配置为你的github仓库的地址，注意，：后又一个空格，这个很重要，第一次我没写空格，死活都提交不上去，也不报错，各种抓狂</p>
-<h2 id="发布博客到github"><a href="#发布博客到github" class="headerlink" title="发布博客到github"></a>发布博客到github</h2><p>依次执行下面的命令<br><code>hexo clean</code><br>清理缓存<br><code>hexo g</code><br>编译博客<br><code>hexo d</code><br>发布到github仓库<br><img src="../images/setgit.png" alt="node版本提示"><br>我发布的时候出现这个问题，按照指示设置一下注册github的邮箱和github用户名即可，中间要输入一次密码<br>如果出现下图既证明已经没有出现问题<br>如果成功的话在浏览器输入(<a href="http://heystone.github.io" target="_blank" rel="noopener">http://heystone.github.io</a>) 就可以访问你的博客了。把用户名换为你自己的。<br>如果发布的时候出现错误：ERROR Deployer not found: git 意思就是用来发布文章的git没有安装，执行命令 npm install hexo-deployer-git –save就可以解决了<br>好了，一切都大功告成了，后期可以申请一个自己的域名，我目前还没申请，申请以后再搞一下配置<br>完成以后，你们就可以尽情折腾自己的博客啦</p>
+<h2 id="发布博客到github"><a href="#发布博客到github" class="headerlink" title="发布博客到github"></a>发布博客到github</h2><p>依次执行下面的命令<br><code>hexo clean</code><br>清理缓存<br><code>hexo g</code><br>编译博客<br><code>hexo d</code><br>发布到github仓库<br><img src="../images/setgit.png" alt="node版本提示"><br>我发布的时候出现这个问题，按照指示设置一下注册github的邮箱和github用户名即可，中间要输入一次密码<br>如果出现下图既证明已经没有出现问题<br>如果成功的话在浏览器输入(<a href="http://heystone.github.io">http://heystone.github.io</a>) 就可以访问你的博客了。把用户名换为你自己的。<br>如果发布的时候出现错误：ERROR Deployer not found: git 意思就是用来发布文章的git没有安装，执行命令 npm install hexo-deployer-git –save就可以解决了<br>好了，一切都大功告成了，后期可以申请一个自己的域名，我目前还没申请，申请以后再搞一下配置<br>完成以后，你们就可以尽情折腾自己的博客啦</p>
 
             <div class="post-copyright">
     <div class="content">
         <p>最后更新： 2018年08月01日 23:42</p>
-        <p>原始链接： <a class="post-url" href="/2018/08/01/手把手教你如何用hexo和github搭建博客/" title="手把手教你如何用hexo和github搭建博客">http://yoursite.com/2018/08/01/手把手教你如何用hexo和github搭建博客/</a></p>
+        <p>原始链接： <a class="post-url" href="/2018/08/01/手把手教你如何用hexo和github搭建博客/" title="手把手教你如何用hexo和github搭建博客">http://heystone.github.io/2018/08/01/手把手教你如何用hexo和github搭建博客/</a></p>
         <footer>
-            <a href="http://yoursite.com">
+            <a href="http://heystone.github.io">
                 <img src="/images/logo.png" alt="石头">
                 石头
             </a>
@@ -206,7 +206,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/08/01/手把手教你如何用hexo和github搭建博客/&title=《手把手教你如何用hexo和github搭建博客》 — 石头的Web前端Blog&pic=http://yoursite.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://heystone.github.io/2018/08/01/手把手教你如何用hexo和github搭建博客/&title=《手把手教你如何用hexo和github搭建博客》 — 石头的Web前端Blog&pic=http://heystone.github.ioimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -216,22 +216,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/08/01/手把手教你如何用hexo和github搭建博客/&title=《手把手教你如何用hexo和github搭建博客》 — 石头的Web前端Blog&source=Web小前端" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://heystone.github.io/2018/08/01/手把手教你如何用hexo和github搭建博客/&title=《手把手教你如何用hexo和github搭建博客》 — 石头的Web前端Blog&source=Web小前端" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/01/手把手教你如何用hexo和github搭建博客/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://heystone.github.io/2018/08/01/手把手教你如何用hexo和github搭建博客/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《手把手教你如何用hexo和github搭建博客》 — 石头的Web前端Blog&url=http://yoursite.com/2018/08/01/手把手教你如何用hexo和github搭建博客/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《手把手教你如何用hexo和github搭建博客》 — 石头的Web前端Blog&url=http://heystone.github.io/2018/08/01/手把手教你如何用hexo和github搭建博客/&via=http://heystone.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/08/01/手把手教你如何用hexo和github搭建博客/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://heystone.github.io/2018/08/01/手把手教你如何用hexo和github搭建博客/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -241,7 +241,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/08/01/手把手教你如何用hexo和github搭建博客/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://heystone.github.io/2018/08/01/手把手教你如何用hexo和github搭建博客/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -313,7 +313,7 @@
 <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script>
   var mihoConfig = {
-      root: "http://yoursite.com",
+      root: "http://heystone.github.io",
       animate: true,
       isHome: false,
       share: true,
