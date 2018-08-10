@@ -13,10 +13,11 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://heystone.github.io
+url: http://heyheystone.com
 root: /
-permalink: :year/:month/:day/
+permalink: :year/:month/:day/:urlname/
 permalink_defaults:
+    urlname: index
 
 # Directory
 source_dir: source
@@ -78,7 +79,14 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repository: https://github.com/heystone/heystone.github.io
-  branch: master
-  
+  - type: git
+    repository: https://github.com/heystone/heystone.github.io
+    branch: master
+  - type: baidu_url_submitter
+
+baidu_url_submit:
+  count: 100 # 提交最新的一个链接
+  host: www.heyheystone.com # 在百度站长平台中注册的域名
+  token: yaXjT15LAlwy5V4f # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里
+
