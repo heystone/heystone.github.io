@@ -1,7 +1,10 @@
 ---
-title: 手把手教你如何用hexo和github搭建博客
+title: 从头开始使用hexo和github搭建博客
 date: 2018-08-01 17:45:12
-tags: hexo github
+categories: hexo
+tags: 
+    - hexo
+    - github
 ---
 # 创建博客主要有四步（以windows为例）：
 1、安装node.js环境--hexo运行需要基于node环境
