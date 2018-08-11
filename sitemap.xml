@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://heyheystone.com/about/index.html</loc>
+    
+    <lastmod>2018-08-11T05:32:57.879Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://heyheystone.com/categories/index.html</loc>
     
     <lastmod>2018-08-09T05:00:28.840Z</lastmod>
@@ -33,20 +40,6 @@
     <loc>http://heyheystone.com/404.html</loc>
     
     <lastmod>2018-08-02T06:39:47.551Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://heyheystone.com/about/index.html</loc>
-    
-    <lastmod>2018-08-02T04:37:38.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://heyheystone.com/2018/07/28/index/</loc>
-    
-    <lastmod>2018-07-28T05:36:33.393Z</lastmod>
     
   </url>
   
