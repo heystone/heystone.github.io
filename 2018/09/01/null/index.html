@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="D3.js,ArcGIS,Javascript,迁徙图," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="项目中有需要很多数据可视化的图表，用的最多的也就数当前的Echarts了，用过的同学都应该清楚，基本的图表来说Echarts做的已经很好了，但是诟病最多的也当属Echarts的定制度不高，可配置性差，有时候需要调一点样式，都很难实现，所以最近想开始学习一下D3.js，D3的优势就之一也就是其高度的可定制化，完全都是自己来画的，但这也是其上手比较难的主要原因，需要有基本的前端Dom、JS、CSS基础">
+<meta name="keywords" content="D3.js,ArcGIS,Javascript,迁徙图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="D3+Arcgis地图实现简单的迁徙图">
+<meta property="og:url" content="http://heyheystone.com/2018/09/01/null/index.html">
+<meta property="og:site_name" content="石头的前端Blog">
+<meta property="og:description" content="项目中有需要很多数据可视化的图表，用的最多的也就数当前的Echarts了，用过的同学都应该清楚，基本的图表来说Echarts做的已经很好了，但是诟病最多的也当属Echarts的定制度不高，可配置性差，有时候需要调一点样式，都很难实现，所以最近想开始学习一下D3.js，D3的优势就之一也就是其高度的可定制化，完全都是自己来画的，但这也是其上手比较难的主要原因，需要有基本的前端Dom、JS、CSS基础">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://heyheystone.com/images/D3_Arcgis/overlay.png">
+<meta property="og:updated_time" content="2018-09-01T03:19:59.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="D3+Arcgis地图实现简单的迁徙图">
+<meta name="twitter:description" content="项目中有需要很多数据可视化的图表，用的最多的也就数当前的Echarts了，用过的同学都应该清楚，基本的图表来说Echarts做的已经很好了，但是诟病最多的也当属Echarts的定制度不高，可配置性差，有时候需要调一点样式，都很难实现，所以最近想开始学习一下D3.js，D3的优势就之一也就是其高度的可定制化，完全都是自己来画的，但这也是其上手比较难的主要原因，需要有基本的前端Dom、JS、CSS基础">
+<meta name="twitter:image" content="http://heyheystone.com/images/D3_Arcgis/overlay.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://heyheystone.com/2018/09/01/null/"/>
+
+
+
+
+
+  <title>D3+Arcgis地图实现简单的迁徙图 | 石头的前端Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">石头的前端Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Web小前端</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://heyheystone.com/2018/09/01/null/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="石头">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="石头的前端Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">D3+Arcgis地图实现简单的迁徙图</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-01T10:41:48+08:00">
+                2018-09-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-01T11:19:59+08:00">
+                2018-09-01
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/可视化/" itemprop="url" rel="index">
+                    <span itemprop="name">可视化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/01/null/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/01/null/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/01/null/" class="leancloud_visitors" data-flag-title="D3+Arcgis地图实现简单的迁徙图">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  972 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>项目中有需要很多数据可视化的图表，用的最多的也就数当前的Echarts了，用过的同学都应该清楚，基本的图表来说Echarts做的已经很好了，<br>但是诟病最多的也当属Echarts的定制度不高，可配置性差，有时候需要调一点样式，都很难实现，所以最近想开始学习一下D3.js，D3的优势<br>就之一也就是其高度的可定制化，完全都是自己来画的，但这也是其上手比较难的主要原因，需要有基本的前端Dom、JS、CSS基础才能做出比较<br>炫酷的图表，不过也不至于灰心，慢慢去做就好了。<br>    目前项目中遇到一个ArcGIS地图上做迁徙图的功能，网上也有Echarts结合ArcGIS做的实例，本着爱折腾的态度，正合适去学习一下D3，自己着手去做了<br>一下小demo，也没去完善，给大家一个参考。<br>首先看下最终效果图：<br><img src="/images/D3_Arcgis/overlay.png" alt="迁徙图效果图"></p>
+<h2 id="首先引用D3-js目前是V5版本："><a href="#首先引用D3-js目前是V5版本：" class="headerlink" title="首先引用D3.js目前是V5版本："></a>首先引用D3.js目前是V5版本：</h2><p><code>&lt;script src=&quot;https://d3js.org/d3.v5.min.js&quot;&gt;&lt;/script&gt;</code><br>可以去<a href="https://d3js.org/" target="_blank" rel="noopener">D3.js官网</a>下载</p>
+<h2 id="引入ArcGIS类库"><a href="#引入ArcGIS类库" class="headerlink" title="引入ArcGIS类库"></a>引入ArcGIS类库</h2><p>我用的是4.6，目前最新的是4.8了<br><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.8/esri/css/main.css&quot;&gt;</code><br><code>&lt;script src=&quot;https://js.arcgis.com/4.8/&quot;&gt;&lt;/script&gt;</code><br>可以去<a href="https://developers.arcgis.com/javascript/latest/guide/get-api/index.html" target="_blank" rel="noopener">ArcGIS官网</a>下载</p>
+<h2 id="初始化加载ArcGIS地图"><a href="#初始化加载ArcGIS地图" class="headerlink" title="初始化加载ArcGIS地图"></a>初始化加载ArcGIS地图</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	    	<span class="built_in">require</span>([<span class="string">"esri/views/MapView"</span>,</span><br><span class="line">		  		<span class="string">"esri/Map"</span>,</span><br><span class="line">		  		<span class="string">"esri/layers/OpenStreetMapLayer"</span>,</span><br><span class="line">		  		<span class="string">"esri/geometry/Extent"</span>,</span><br><span class="line">		  		<span class="string">"esri/geometry/Point"</span>,</span><br><span class="line">		  		<span class="string">"esri/geometry/ScreenPoint"</span>,</span><br><span class="line">		  		<span class="string">"esri/tasks/support/Query"</span>,</span><br><span class="line">		  		<span class="string">"esri/tasks/QueryTask"</span></span><br><span class="line">		  		], <span class="function"><span class="keyword">function</span>(<span class="params">MapView,Map,OpenStreetMapLayer,Extent,Point,ScreenPoint,Query,QueryTask</span>) </span>&#123; </span><br><span class="line">		  	        myMap = <span class="keyword">new</span> <span class="built_in">Map</span>(&#123;</span><br><span class="line">		  	            basemap:<span class="string">'osm'</span></span><br><span class="line">		  	        &#125;);</span><br><span class="line">		  	        view = <span class="keyword">new</span> MapView(&#123;</span><br><span class="line">		  	            map: myMap,</span><br><span class="line">		  	            container: <span class="string">"mapContainer"</span>,</span><br><span class="line">		  	            center : [<span class="number">112.53</span>,<span class="number">37.87</span>],</span><br><span class="line">		  			    zoom : <span class="number">12</span>,</span><br><span class="line">		  	        &#125;);</span><br><span class="line">                    <span class="comment">//由于我用的是测试数据，我在这自己发布了一个图层，调取他们的坐标</span></span><br><span class="line">		  	        <span class="keyword">var</span> layer=<span class="string">"http://xx.xx.x.x:6080/y/MapServer"</span></span><br><span class="line">		      		<span class="keyword">var</span> queryTask = <span class="keyword">new</span> QueryTask(layer+<span class="string">"/0"</span>);</span><br><span class="line">		      	    <span class="keyword">var</span> query= <span class="keyword">new</span> Query();</span><br><span class="line">		      	    query.where = <span class="string">"1 = 1"</span>;</span><br><span class="line">		      	    query.outFields = [<span class="string">"*"</span>];</span><br><span class="line">		      	    query.returnGeometry = <span class="literal">true</span>;</span><br><span class="line">		      	    queryTask.execute(query).then(<span class="function"><span class="keyword">function</span>(<span class="params">results</span>)</span>&#123;</span><br><span class="line">		      	    	<span class="keyword">if</span> (results.features.length &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">		        	    	reyuan = results.features;</span><br><span class="line">		        	    &#125;</span><br><span class="line">		      	    &#125;);</span><br><span class="line">                    <span class="comment">//监听平移，缩放和旋转</span></span><br><span class="line">		      	    view.watch(<span class="string">'center, scale, rotation'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		      	    	<span class="keyword">if</span>(initstate)&#123;</span><br><span class="line">		      	    		geoToscreen();</span><br><span class="line">		      	    	&#125;</span><br><span class="line">		      	    &#125;)</span><br><span class="line">		  		&#125;);</span><br><span class="line">	      &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="点击绘制的方法"><a href="#点击绘制的方法" class="headerlink" title="点击绘制的方法"></a>点击绘制的方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">play</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    initstate=<span class="literal">true</span>;<span class="comment">//用来一个变量区别初始化，逻辑可忽略</span></span><br><span class="line">    <span class="comment">//(".esri-view-surface")是我把svg绘制添加到了这个view里面</span></span><br><span class="line">    <span class="keyword">var</span> poitMoveSvg = d3.select(<span class="string">".esri-view-surface"</span>).append(<span class="string">"svg"</span>).attr(<span class="string">"id"</span>, <span class="string">"d3_svg"</span>).attr(<span class="string">"class"</span>, <span class="string">"svgTransform"</span>)</span><br><span class="line">    g = d3.select(<span class="string">"#d3_svg"</span>)</span><br><span class="line">        .append(<span class="string">"g"</span>)</span><br><span class="line">        .attr(<span class="string">"id"</span>, <span class="string">"pointMove"</span>);</span><br><span class="line">    geoToscreen();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="主要的绘制方法"><a href="#主要的绘制方法" class="headerlink" title="主要的绘制方法"></a>主要的绘制方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">geoToscreen</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"d3_svg"</span>).pauseAnimations()</span><br><span class="line">    d3.selectAll(<span class="string">"#pointMove path"</span>).remove();</span><br><span class="line">    d3.selectAll(<span class="string">"#pointMove circle"</span>).remove()</span><br><span class="line">    <span class="keyword">var</span> s_screen=view.toScreen(reyuan[<span class="number">0</span>].geometry);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>,len=reyuan.length;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> color=<span class="string">'#17A05D'</span>;</span><br><span class="line">        <span class="keyword">var</span> e_screen=view.toScreen(reyuan[i].geometry);</span><br><span class="line">        <span class="keyword">var</span> path=<span class="string">'M'</span>+s_screen.x+<span class="string">','</span>+s_screen.y+<span class="string">'A800,800 0 0,1 '</span>+e_screen.x+<span class="string">','</span>+e_screen.y</span><br><span class="line">        <span class="keyword">var</span> arrow=<span class="string">'m0,0L-20,-10,-13,0,-20,10,0,0'</span>;</span><br><span class="line">            g.append(<span class="string">"path"</span>)<span class="comment">//画路径</span></span><br><span class="line">                .attr(<span class="string">"d"</span>, path)</span><br><span class="line">                .attr(<span class="string">"stroke"</span>, color)</span><br><span class="line">                .attr(<span class="string">"fill"</span>, <span class="string">"none"</span>)</span><br><span class="line">                .attr(<span class="string">"stroke-width"</span>, <span class="string">"2"</span>);</span><br><span class="line">            g.append(<span class="string">"path"</span>)<span class="comment">//画箭头</span></span><br><span class="line">                .attr(<span class="string">"d"</span>, arrow)</span><br><span class="line">                .attr(<span class="string">"stroke"</span>, <span class="string">"#0188FB"</span>)</span><br><span class="line">                .attr(<span class="string">"fill"</span>, <span class="string">"#0188FB"</span>)</span><br><span class="line">                .attr(<span class="string">"stroke-width"</span>, <span class="string">"2"</span>)</span><br><span class="line">                .append(<span class="string">'animateMotion'</span>)</span><br><span class="line">                .attr(<span class="string">'path'</span>, path)</span><br><span class="line">                .attr(<span class="string">'rotate'</span>, <span class="string">"auto"</span>)</span><br><span class="line">                .attr(<span class="string">'dur'</span>, <span class="string">"8s"</span>)</span><br><span class="line">                .attr(<span class="string">'repeatCount'</span>, <span class="string">"indefinite"</span>);</span><br><span class="line">            g.append(<span class="string">"circle"</span>)<span class="comment">//起始点的圆圈</span></span><br><span class="line">                .attr(<span class="string">"r"</span>, <span class="number">8</span>)</span><br><span class="line">                .attr(<span class="string">"fill"</span>, <span class="string">"#E9A938"</span>)</span><br><span class="line">                .attr(<span class="string">"cx"</span>,s_screen.x)</span><br><span class="line">                .attr(<span class="string">"cy"</span>,s_screen.y);</span><br><span class="line">            g.append(<span class="string">"circle"</span>)</span><br><span class="line">                .attr(<span class="string">"r"</span>, <span class="number">8</span>)</span><br><span class="line">                .attr(<span class="string">"fill"</span>, <span class="string">"#81D841"</span>)</span><br><span class="line">                .attr(<span class="string">"cx"</span>,e_screen.x)</span><br><span class="line">                .attr(<span class="string">"cy"</span>,e_screen.y)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"d3_svg"</span>).unpauseAnimations()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="dom部分"><a href="#dom部分" class="headerlink" title="dom部分"></a>dom部分</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://d3js.org/d3.v5.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://js.arcgis.com/4.8/esri/css/main.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://js.arcgis.com/4.8/"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		html,body,#mapContainer&#123;</span></span><br><span class="line"><span class="undefined">		    padding:0px;</span></span><br><span class="line"><span class="undefined">		    margin:0px;</span></span><br><span class="line"><span class="undefined">			width:100%;</span></span><br><span class="line"><span class="undefined">			height:900px;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">		.svgTransform&#123;</span></span><br><span class="line"><span class="undefined">			position: absolute;</span></span><br><span class="line"><span class="undefined">			left:0px;</span></span><br><span class="line"><span class="undefined">			top:0px;</span></span><br><span class="line"><span class="undefined">			width:100%;</span></span><br><span class="line"><span class="undefined">			height:100%;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"init()"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">style</span>=<span class="string">"position:absolute;left:20px;top:20px;"</span> <span class="attr">onclick</span>=<span class="string">"play()"</span>&gt;</span>飞行图<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"mapContainer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>以上，代码比较low，demo比较简洁，后期有时间会慢慢学习，欢迎批评指正！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>请我吃糖~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="石头 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="石头 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/D3-js/" rel="tag"><i class="fa fa-tag"></i> D3.js</a>
+          
+            <a href="/tags/ArcGIS/" rel="tag"><i class="fa fa-tag"></i> ArcGIS</a>
+          
+            <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tag"></i> Javascript</a>
+          
+            <a href="/tags/迁徙图/" rel="tag"><i class="fa fa-tag"></i> 迁徙图</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/09/index/" rel="next" title="hexo博客源文件发布到github">
+                <i class="fa fa-chevron-left"></i> hexo博客源文件发布到github
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="石头" />
+            
+              <p class="site-author-name" itemprop="name">石头</p>
+              <p class="site-description motion-element" itemprop="description">我不愿意跟使用IE的人做朋友</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/heystone" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先引用D3-js目前是V5版本："><span class="nav-number">1.</span> <span class="nav-text">首先引用D3.js目前是V5版本：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入ArcGIS类库"><span class="nav-number">2.</span> <span class="nav-text">引入ArcGIS类库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化加载ArcGIS地图"><span class="nav-number">3.</span> <span class="nav-text">初始化加载ArcGIS地图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击绘制的方法"><span class="nav-number">4.</span> <span class="nav-text">点击绘制的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要的绘制方法"><span class="nav-number">5.</span> <span class="nav-text">主要的绘制方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dom部分"><span class="nav-number">6.</span> <span class="nav-text">dom部分</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">石头</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">2.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+ <span id="busuanzi_container_site_pv" class="theme-info">
+&nbsp;&nbsp;|&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv" class="theme-info">
+&nbsp;&nbsp;|&nbsp;&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'dnjoRWfIwvcCpE9s8MeGIezl-gzGzoHsz',
+        appKey: 'CszatJ3oGGtScOtFHa2GghFk',
+        placeholder: '求撩~~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("dnjoRWfIwvcCpE9s8MeGIezl-gzGzoHsz", "CszatJ3oGGtScOtFHa2GghFk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
