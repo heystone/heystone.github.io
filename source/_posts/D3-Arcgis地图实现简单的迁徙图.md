@@ -1,7 +1,7 @@
 ---
 title: D3+Arcgis地图实现简单的迁徙图
 date: 2018-09-01 10:41:48
-urlname:
+urlname: arcd3
 tags: 
     - D3.js
     - ArcGIS
