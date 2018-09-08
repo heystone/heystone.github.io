@@ -106,7 +106,7 @@ function geoToscreen(){
                 .attr("stroke", color)
                 .attr("fill", "none")
                 .attr("stroke-width", "2");
-            g.append("path")//画箭头
+            g.append("path")//画箭头.
                 .attr("d", arrow)
                 .attr("stroke", "#0188FB")
                 .attr("fill", "#0188FB")
