@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://heyheystone.com/2018/09/07/gitcommand/</loc>
-    <lastmod>2018-09-07T10:43:26.115Z</lastmod>
+    <lastmod>2018-09-08T06:47:50.254Z</lastmod>
     <data>
         <display>
         <title>Git基本知识和常用命令（一）</title>
@@ -17,6 +17,26 @@
            
              
               <breadCrumb title="git" url="http://heyheystone.com/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://heyheystone.com/2018/09/05/gitpush/</loc>
+    <lastmod>2018-09-08T06:47:41.084Z</lastmod>
+    <data>
+        <display>
+        <title>第一次将工程上传GitHub</title>
+        <pubTime>2018-09-05T09:59:38.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="问题汇总 git" url="http://heyheystone.com/categories/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB-git/"/>
           
         </display>
     </data>
@@ -43,26 +63,6 @@
            
              
               <breadCrumb title="可视化" url="http://heyheystone.com/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://heyheystone.com/2018/09/05/gitpush/</loc>
-    <lastmod>2018-09-05T10:15:51.125Z</lastmod>
-    <data>
-        <display>
-        <title>第一次将工程上传GitHub</title>
-        <pubTime>2018-09-05T09:59:38.000Z</pubTime>
-        
-        <tag>github</tag>
-         
-         
-           
-             
-              <breadCrumb title="问题汇总" url="http://heyheystone.com/categories/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
           
         </display>
     </data>
