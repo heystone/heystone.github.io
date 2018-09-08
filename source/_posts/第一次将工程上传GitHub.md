@@ -3,7 +3,7 @@ title: 第一次将工程上传GitHub
 date: 2018-09-05 17:59:38
 urlname: gitpush
 tags: github
-categories: 问题汇总
+categories: 问题汇总 git
 ---
 第一次提交代码的一般步骤：
 1、新建仓库,不要手残点击生成readme.md,后面提交会有很多意外的坑
