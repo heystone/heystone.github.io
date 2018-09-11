@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="hexo,github," />
+  <meta name="keywords" content="hexo源码、发布Github" />
 
 
 
@@ -83,26 +83,22 @@
 
 
 
-<meta name="description" content="创建博客主要有四步（以windows为例）：1、安装node.js环境–hexo运行需要基于node环境2、安装hexo3、安装git客户端–方便的执行一些git命令4、创建github仓库–用于作为发布博客的服务器 第一步：安装node.js环境进入官网(https://nodejs.org/en/)下载安装包，直接点击安装即可,安装完后，运行node -v如下即表示安装成功 第二步：安装hex">
-<meta name="keywords" content="hexo,github">
+<meta name="description" content="hexo源码发布到github">
+<meta name="keywords" content="hexo源码、发布Github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从头开始使用hexo和github搭建博客">
-<meta property="og:url" content="http://heyheystone.com/index/index.html">
+<meta property="og:title" content="hexo博客源文件发布到github">
+<meta property="og:url" content="http://heyheystone.com/hexosource/index.html">
 <meta property="og:site_name" content="石头的前端Blog">
-<meta property="og:description" content="创建博客主要有四步（以windows为例）：1、安装node.js环境–hexo运行需要基于node环境2、安装hexo3、安装git客户端–方便的执行一些git命令4、创建github仓库–用于作为发布博客的服务器 第一步：安装node.js环境进入官网(https://nodejs.org/en/)下载安装包，直接点击安装即可,安装完后，运行node -v如下即表示安装成功 第二步：安装hex">
+<meta property="og:description" content="hexo源码发布到github">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://heyheystone.com/images/node-v.png">
-<meta property="og:image" content="http://heyheystone.com/images/hexoserver.png">
-<meta property="og:image" content="http://heyheystone.com/images/success.png">
-<meta property="og:image" content="http://heyheystone.com/images/createrep.png">
-<meta property="og:image" content="http://heyheystone.com/images/111.png">
-<meta property="og:image" content="http://heyheystone.com/images/sshkey.png">
-<meta property="og:image" content="http://heyheystone.com/images/setgit.png">
-<meta property="og:updated_time" content="2018-08-09T04:57:27.452Z">
+<meta property="og:image" content="http://heyheystone.com/images/sourcetogithub/branch.png">
+<meta property="og:image" content="http://heyheystone.com/images/sourcetogithub/default.png">
+<meta property="og:image" content="http://heyheystone.com/images/sourcetogithub/hexosource.png">
+<meta property="og:updated_time" content="2018-09-11T08:21:02.902Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从头开始使用hexo和github搭建博客">
-<meta name="twitter:description" content="创建博客主要有四步（以windows为例）：1、安装node.js环境–hexo运行需要基于node环境2、安装hexo3、安装git客户端–方便的执行一些git命令4、创建github仓库–用于作为发布博客的服务器 第一步：安装node.js环境进入官网(https://nodejs.org/en/)下载安装包，直接点击安装即可,安装完后，运行node -v如下即表示安装成功 第二步：安装hex">
-<meta name="twitter:image" content="http://heyheystone.com/images/node-v.png">
+<meta name="twitter:title" content="hexo博客源文件发布到github">
+<meta name="twitter:description" content="hexo源码发布到github">
+<meta name="twitter:image" content="http://heyheystone.com/images/sourcetogithub/branch.png">
 
 
 
@@ -132,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://heyheystone.com/index/"/>
+  <link rel="canonical" href="http://heyheystone.com/hexosource/"/>
 
 
 
 
 
-  <title>从头开始使用hexo和github搭建博客 | 石头的前端Blog</title>
+  <title>hexo博客源文件发布到github | 石头的前端Blog</title>
   
 
 
@@ -285,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://heyheystone.com/index/">
+    <link itemprop="mainEntityOfPage" href="http://heyheystone.com/hexosource/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="石头">
@@ -302,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">从头开始使用hexo和github搭建博客</h1>
+          <h1 class="post-title" itemprop="name headline">hexo博客源文件发布到github</h1>
         
 
         <div class="post-meta">
@@ -314,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-01T17:45:12+08:00">
-                2018-08-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-09T08:50:12+08:00">
+                2018-08-09
               </time>
             
 
@@ -330,8 +326,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-09T12:57:27+08:00">
-                2018-08-09
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-11T16:21:02+08:00">
+                2018-09-11
               </time>
             
           </span>
@@ -367,8 +363,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/index/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/index/" itemprop="commentCount"></span>
+                <a href="/hexosource/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/hexosource/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -376,7 +372,7 @@
 
           
           
-             <span id="/index/" class="leancloud_visitors" data-flag-title="从头开始使用hexo和github搭建博客">
+             <span id="/hexosource/" class="leancloud_visitors" data-flag-title="hexo博客源文件发布到github">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -401,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,179 字
+                  518 字
                 </span>
               
 
@@ -417,12 +413,16 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4 分钟
+                  2 分钟
                 </span>
               
             </div>
           
 
+          
+              <div class="post-description">
+                  hexo源码发布到github
+              </div>
           
         </div>
       </header>
@@ -437,13 +437,11 @@
       
 
       
-        <h1 id="创建博客主要有四步（以windows为例）："><a href="#创建博客主要有四步（以windows为例）：" class="headerlink" title="创建博客主要有四步（以windows为例）："></a>创建博客主要有四步（以windows为例）：</h1><p>1、安装node.js环境–hexo运行需要基于node环境<br>2、安装hexo<br>3、安装git客户端–方便的执行一些git命令<br>4、创建github仓库–用于作为发布博客的服务器</p>
-<h2 id="第一步：安装node-js环境"><a href="#第一步：安装node-js环境" class="headerlink" title="第一步：安装node.js环境"></a>第一步：安装node.js环境</h2><p>进入官网(<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a>)<br>下载安装包，直接点击安装即可,安装完后，运行<br><code>node -v</code><br>如下即表示安装成功<br><img src="/images/node-v.png" alt="node版本提示"></p>
-<h2 id="第二步：安装hexo"><a href="#第二步：安装hexo" class="headerlink" title="第二步：安装hexo"></a>第二步：安装hexo</h2><p>第一步环境配置成功以后就可以使用npm安装Hexo了，建议使用淘宝镜像cnpm，速度要快很多<br><code>npm install -g hexo-cli</code><br><code>npm install hexo --save</code><br>然后在本地目录创建一个文件夹,比如我创建的是一个hexoBlog文件夹<br>然后cd到hexoBlog文件夹，然后依次执行下面的命令<br><code>hexo init</code><br><code>npm install</code><br>我当时执行命令的时候报错hexo不是内部命令<br>是因为没有默认设置环境变量，以前安装以后都会默认设置好环境变量，这次并没有默认设置好，不知道为什么，只需要设置一下hexo的环境变量即可，一般的位置是<br><code>C:\Users\stone\AppData\Roaming\npm\node_modules\hexo\node_modules\.bin</code><br>一切都设置完毕以后，启动本地Hexo服务<br>执行命令<br><code>hexo server</code><br><img src="/images/hexoserver.png" alt="node版本提示"><br>打开浏览器，输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 出现下图，恭喜你，你已经成功了一大步！<br><img src="/images/success.png" alt="node版本提示"></p>
-<h2 id="第三步-安装git客户端"><a href="#第三步-安装git客户端" class="headerlink" title="第三步 安装git客户端"></a>第三步 安装git客户端</h2><p>这一步比较简单，不详细描述，搜索git客户端下载，一路next安装，完成后<br>桌面鼠标右键会出现：<br>Git GUI Here 这个是可视化操作界面，我一般不怎么用<br>Git Bash Here  这个是命令行操作，这个用的比较多<br>说明安装成功了，待用</p>
-<h2 id="第四步-创建github仓库"><a href="#第四步-创建github仓库" class="headerlink" title="第四步 创建github仓库"></a>第四步 创建github仓库</h2><p>进入github官网(<a href="http://www.github.com" target="_blank" rel="noopener">http://www.github.com</a>)<br>首先你得有一个github账号（手动滑稽）,没有的话就先注册，简单，不描述，注册后创建一个的仓库，用于存放博客<br>如下图：<br><img src="/images/createrep.png" alt="node版本提示"><br>仓库的名称必须是github名字.github.io，这个要注意<br>创建完仓库以后，就要配置SSH，这个是用来远程连接你的github账户的，有一个公钥和私钥<br>方法如下：<br>打开第三步安装的Git Bash Here<br>执行命令ssh-keyge 回车生成SSH，如果要设置了密码，每次提交github仓库时都要输入密码，不设置的话不用输入<br><img src="/images/111.png" alt="node版本提示"><br>说明创建成功！<br>一般存在于C:\Users\用户.ssh下，会出现两个id_rsa文件，打开id_rsa.pub文件，这里面就是SSH key的内容<br>打开你的github,右上角头像，点击Setting，然后选择SSH and GPG keys，点击右边Add SSH<br>然后把复制的SSH key内容粘贴到下面那个框里面，title随便自己写<br>过程可能会让你输入一次密码，输入即可！<br><img src="/images/sshkey.png" alt="node版本提示"><br>配置好就行了<br><em>这里要注意，复制的一定是.pub的文件里的内容，我第一次就复制错了，复制了第一个私钥的内容，结果报错：<br>GitHub添加SSH keys报错Key is invalid. It must begin with ‘ssh-ed25519’, ‘ssh-rsa’, ‘ssh-dss’, ‘ecdsa-sha</em><br>判断SSH是否配置好，用git bash 命令行输入<br>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a><br>出现Hi heystone! You’ve successfully authenticated, but GitHub does not provide shell access. 就表示你已经配置好了SSH<br>SSH配置好了，进行下一步</p>
-<h2 id="配置本地hexo仓库地址"><a href="#配置本地hexo仓库地址" class="headerlink" title="配置本地hexo仓库地址"></a>配置本地hexo仓库地址</h2><p>打开Hexo目录下的_config.yml，最下面<br><code>deploy:</code><br>  <code>type: git</code><br>  <code>repository: https://github.com/heystone/heystone.github.io.git</code><br>  <code>branch: master</code><br>repository配置为你的github仓库的地址，注意，：后又一个空格，这个很重要，第一次我没写空格，死活都提交不上去，也不报错，各种抓狂</p>
-<h2 id="发布博客到github"><a href="#发布博客到github" class="headerlink" title="发布博客到github"></a>发布博客到github</h2><p>依次执行下面的命令<br><code>hexo clean</code><br>清理缓存<br><code>hexo g</code><br>编译博客<br><code>hexo d</code><br>发布到github仓库<br><img src="/images/setgit.png" alt="node版本提示"><br>我发布的时候出现这个问题，按照指示设置一下注册github的邮箱和github用户名即可，中间要输入一次密码<br>如果出现下图既证明已经没有出现问题<br>如果成功的话在浏览器输入(<a href="http://heystone.github.io" target="_blank" rel="noopener">http://heystone.github.io</a>) 就可以访问你的博客了。把用户名换为你自己的。<br>如果发布的时候出现错误：ERROR Deployer not found: git 意思就是用来发布文章的git没有安装<br>执行命令<br><code>npm install hexo-deployer-git --save</code><br>就可以解决了<br>好了，一切都大功告成了，后期可以申请一个自己的域名，我目前还没申请，申请以后再搞一下配置<br>完成以后，你们就可以尽情折腾自己的博客啦</p>
+        <p>这几天刚刚搭建的hexo博客，玩的还不太熟，由于白天上班没太有时间写博客，下班回家电脑又没有hexo环境和<br>博客源文件，写起来很不方便。于是又折腾一下，把hexo的源文件也一起发布到github上，这样就可以随时随地<br>的去更新了。<br>具体的方法网上也有一大堆，说的都比较笼统，本身自己对github的很多操作也不是很熟，所以也花了一个多小时<br>才搞定，方法自己记录了下来：</p>
+<h2 id="github上建立两个分支，一个默认就有的master，一个hexo（我的名字，随意起）"><a href="#github上建立两个分支，一个默认就有的master，一个hexo（我的名字，随意起）" class="headerlink" title="github上建立两个分支，一个默认就有的master，一个hexo（我的名字，随意起）"></a>github上建立两个分支，一个默认就有的master，一个hexo（我的名字，随意起）</h2><p>  1、master分支，用来存放编译后的博客文件<br>  2、hexo分支，用来存放博客的源文件</p>
+<h2 id="新建hexo分支"><a href="#新建hexo分支" class="headerlink" title="新建hexo分支"></a>新建hexo分支</h2><p>  1、在本地新建一个分支：<br>  <code>git branch hexo</code><br>  2、切换到你的新分支:<br>  <code>git checkout hexo</code><br>  3、将新分支发布在github上：<br>  <code>git push origin hexo</code><br>  然后登陆github如图就显示有了hexo分支<br>  <img src="/images/sourcetogithub/branch.png" alt=""><br>  把新建的hexo分支设为默认分支<br>  <img src="/images/sourcetogithub/default.png" alt=""><br>  为什么要把hexo分支设为默认分支呢？<br>  由于你git push的源文件是提交到hexo分支里的，而你编译的博客文件，是按照_config.yml里的配置里提交的，配置里配的是<br>  master分支，这样做的话，git push 就提交到了默认的hexo分支里了，而博客就按照配置发布到了master分支里了。</p>
+<h2 id="上传hexo源文件到github"><a href="#上传hexo源文件到github" class="headerlink" title="上传hexo源文件到github"></a>上传hexo源文件到github</h2><p>  执行：<br>  <code>git add .</code><br>  <code>git commit</code><br>  <code>git push</code><br>  hexo分支里就是源文件部分了<br>  <img src="/images/sourcetogithub/hexosource.png" alt=""></p>
+<h2 id="换电脑重新写博客"><a href="#换电脑重新写博客" class="headerlink" title="换电脑重新写博客"></a>换电脑重新写博客</h2><p>  首先clone你的工程，由于上一步，设置的默认分支是hexo，所以clone的也就是默认的hexo分支里的源文件了<br>  clone以后如果电脑有hexo和node环境，就可以直接<br>  cnpm install<br>  然后就可以开始写博客了<br>  如果电脑没有环境，可以参考上一篇文章配一下基础hexo和node 环境了，地址：<br>  <a href="http://heyheystone.com/2018/08/01/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more">从头开始使用hexo和github搭建博客</a></p>
 
       
     </div>
@@ -505,14 +503,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/hexoblog/" rel="next" title="从头开始使用hexo和github搭建博客">
+                <i class="fa fa-chevron-left"></i> 从头开始使用hexo和github搭建博客
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/index/" rel="prev" title="hexo博客源文件发布到github">
-                hexo博客源文件发布到github <i class="fa fa-chevron-right"></i>
+              <a href="/arcd3/" rel="prev" title="D3+Arcgis地图实现简单的迁徙图">
+                D3+Arcgis地图实现简单的迁徙图 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -662,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建博客主要有四步（以windows为例）："><span class="nav-number">1.</span> <span class="nav-text">创建博客主要有四步（以windows为例）：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：安装node-js环境"><span class="nav-number">1.1.</span> <span class="nav-text">第一步：安装node.js环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：安装hexo"><span class="nav-number">1.2.</span> <span class="nav-text">第二步：安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步-安装git客户端"><span class="nav-number">1.3.</span> <span class="nav-text">第三步 安装git客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步-创建github仓库"><span class="nav-number">1.4.</span> <span class="nav-text">第四步 创建github仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置本地hexo仓库地址"><span class="nav-number">1.5.</span> <span class="nav-text">配置本地hexo仓库地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布博客到github"><span class="nav-number">1.6.</span> <span class="nav-text">发布博客到github</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上建立两个分支，一个默认就有的master，一个hexo（我的名字，随意起）"><span class="nav-number">1.</span> <span class="nav-text">github上建立两个分支，一个默认就有的master，一个hexo（我的名字，随意起）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建hexo分支"><span class="nav-number">2.</span> <span class="nav-text">新建hexo分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传hexo源文件到github"><span class="nav-number">3.</span> <span class="nav-text">上传hexo源文件到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换电脑重新写博客"><span class="nav-number">4.</span> <span class="nav-text">换电脑重新写博客</span></a></li></ol></div>
             
 
           </div>
@@ -701,7 +703,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io"  rel="external nofollow">Hexo</a> 强力驱动</div>
 
 
 
@@ -709,7 +711,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next"  rel="external nofollow">NexT.Gemini</a> v5.1.4</div>
 
 
 

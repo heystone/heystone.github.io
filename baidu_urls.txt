@@ -1,5 +1,5 @@
 http://heyheystone.com/gitcommand/
 http://heyheystone.com/gitpush/
 http://heyheystone.com/arcd3/
-http://heyheystone.com/index/
-http://heyheystone.com/index/
+http://heyheystone.com/hexosource/
+http://heyheystone.com/hexoblog/
