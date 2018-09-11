@@ -1,5 +1,5 @@
-http://heyheystone.com/2018/09/07/gitcommand/
-http://heyheystone.com/2018/09/05/gitpush/
-http://heyheystone.com/2018/09/01/arcd3/
-http://heyheystone.com/2018/08/09/index/
-http://heyheystone.com/2018/08/01/index/
+http://heyheystone.com/gitcommand/
+http://heyheystone.com/gitpush/
+http://heyheystone.com/arcd3/
+http://heyheystone.com/index/
+http://heyheystone.com/index/
