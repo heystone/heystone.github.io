@@ -3,6 +3,33 @@
 
 
     
+    
+  <url>
+    <loc>http://heyheystone.com/2018/09/01/arcd3/</loc>
+    <lastmod>2018-09-08T06:57:19.761Z</lastmod>
+    <data>
+        <display>
+        <title>D3+Arcgis地图实现简单的迁徙图</title>
+        <pubTime>2018-09-01T02:41:48.000Z</pubTime>
+        
+        <tag>D3.js</tag>
+         
+        <tag>ArcGIS</tag>
+         
+        <tag>Javascript</tag>
+         
+        <tag>迁徙图</tag>
+         
+         
+           
+             
+              <breadCrumb title="可视化" url="http://heyheystone.com/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>http://heyheystone.com/2018/09/07/gitcommand/</loc>
     <lastmod>2018-09-08T06:47:50.254Z</lastmod>
@@ -43,32 +70,6 @@
     </url>
 
     
-  <url>
-    <loc>http://heyheystone.com/2018/09/01/arcd3/</loc>
-    <lastmod>2018-09-05T10:18:31.525Z</lastmod>
-    <data>
-        <display>
-        <title>D3+Arcgis地图实现简单的迁徙图</title>
-        <pubTime>2018-09-01T02:41:48.000Z</pubTime>
-        
-        <tag>D3.js</tag>
-         
-        <tag>ArcGIS</tag>
-         
-        <tag>Javascript</tag>
-         
-        <tag>迁徙图</tag>
-         
-         
-           
-             
-              <breadCrumb title="可视化" url="http://heyheystone.com/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
     
     
     
@@ -81,9 +82,9 @@
         <title>hexo博客源文件发布到github</title>
         <pubTime>2018-08-09T00:50:12.000Z</pubTime>
         
-        <tag>github</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>github</tag>
          
          
            
@@ -103,9 +104,9 @@
         <title>从头开始使用hexo和github搭建博客</title>
         <pubTime>2018-08-01T09:45:12.000Z</pubTime>
         
-        <tag>github</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>github</tag>
          
          
            
