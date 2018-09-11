@@ -3,6 +3,7 @@ title: Git基本知识和常用命令（一）
 date: 2018-09-07 18:06:56
 urlname: gitcommand
 tags: github
+keywords: Git基础知识、Git常用命令
 categories: git
 ---
 ## 常用的一些基本的Git命令

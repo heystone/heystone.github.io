@@ -6,7 +6,7 @@
 title: 石头的前端Blog
 subtitle: 前端的，也是世界的
 description: 我不愿意跟使用IE的人做朋友
-keywords: JS、HTML、CSS
+keywords: JS、HTML、CSS、Web 
 author: 石头
 language: zh-Hans
 timezone:
@@ -15,7 +15,8 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://heyheystone.com
 root: /
-permalink: :year/:month/:day/:urlname/
+permalink: :urlname/
+# permalink: :year/:month/:day/:urlname/
 permalink_defaults:
     urlname: index
 

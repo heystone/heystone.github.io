@@ -1,6 +1,8 @@
 ---
 title: hexo博客源文件发布到github
 date: 2018-08-09 08:50:12
+urlname: hexosource
+keywords: hexo源码、发布Github
 tags:
     - hexo
     - github

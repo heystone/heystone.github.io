@@ -2,6 +2,8 @@
 title: 从头开始使用hexo和github搭建博客
 date: 2018-08-01 17:45:12
 categories: hexo
+urlname: hexoblog
+keywords: hexo、github、搭建博客
 tags: 
     - hexo
     - github
