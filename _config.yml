@@ -4,8 +4,8 @@
 
 # Site
 title: 石头的前端Blog
-subtitle: 前端的，也是世界的
-description: 我不愿意跟使用IE的人做朋友
+subtitle: 不跟使用IE的人做朋友
+description: 当你厌恶身边的人，你表达厌恶最好的方式不是和他们争吵，而是自己勤快点，加把劲离开他们，那样他们就永远的从你生活中消失，跟死了没什么两样
 keywords: JS、HTML、CSS、Web 
 author: 石头
 language: zh-Hans
@@ -91,3 +91,4 @@ baidu_url_submit:
   token: yaXjT15LAlwy5V4f # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
   path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里
 
+plugins: hexo-generate-feed
